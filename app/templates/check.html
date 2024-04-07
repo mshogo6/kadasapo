@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../static/css/check.css">
+	<title>カダサポの代わり(怒)</title>
+</head>
+<body>
+	<script>
+		const data = {{ rtn_data | tojson }};
+	</script>
+	<h1>単位修得状況</h1>
+	<div style="display: flex;">
+		<table style="margin-right: 20px;">
+			<tbody>
+				<tr>
+					<td rowspan="14">全学共通科目</td>
+					<td rowspan="5">主題科目</td>
+					<td>主題A</td>
+					<td class="inp"><button type='button' onclick="showNameList(0)" class="alr"></button>/<span class="req"></span></td>
+					<td rowspan="5" class="inp_syudai"><span class="alr_syudai"></span>/<span class="req_syudai"></span></td>
+					<td rowspan="12" class="inp_zen"><span class="alr_zen"></span>/<span class="req_zen"></span></td>
+				</tr>
+				<tr>
+					<td>主題B</td>
+					<td class="inp"><button type='button' onclick="showNameList(1)" class="alr"></button>/<span class="req"></span></td>
+				</tr>
+				<tr>
+					<td>主題C-基</td>
+					<td class="inp"><button type='button' onclick="showNameList(2)" class="alr"></button>/<span class="req"></span></td>
+				</tr>
+				<tr>
+					<td>主題C-講</td>
+					<td class="inp dis_inp">(<button type='button' onclick="showNameList(3)" class="alr"></button>/<span class="req"></span>)</td>
+				</tr>
+				<tr>
+					<td>主題C-実</td>
+					<td class="inp dis_inp">(<button type='button' onclick="showNameList(4)" class="alr"></button>/<span class="req"></span>)</td>
+				</tr>
+				<tr>
+					<td colspan="2">大学入門ゼミ</td>
+					<td colspan="2" class="inp"><button type='button' onclick="showNameList(5)" class="alr"></button>/<span class="req"></span></td>
+				</tr>
+				<tr>
+					<td colspan="2">情報リテラシー</td>
+					<td colspan="2" class="inp"><button type='button' onclick="showNameList(6)" class="alr"></button>/<span class="req"></span></td>
+				</tr>
+				<tr>
+					<td colspan="2">学問基礎科目(文系科目)</td>
+					<td class="inp"><button type='button' onclick="showNameList(7)" class="alr"></button>/<span class="req"></span></td>
+					<td rowspan="2" class="inp_gakumon"><span class="alr_gakumon"></span>/<span class="req_gakumon"></span></td>
+				</tr>
+				<tr>
+					<td colspan="2">学問基礎科目(理系科目)</td>
+					<td class="inp"><button type='button' onclick="showNameList(8)" class="alr"></button>/<span class="req"></span></td>
+				</tr>
+				<tr>
+					<td colspan="2">健康・スポーツ実技</td>
+					<td colspan="2" class="inp dis_inp">(<button type='button' onclick="showNameList(9)" class="alr"></button>/<span class="req"></span>)</td>
+				</tr>
+				<tr>
+					<td colspan="2">高度・広範</td>
+					<td colspan="2" class="inp dis_inp">(<button type='button' onclick="showNameList(10)" class="alr"></button>/<span class="req"></span>)</td>
+				</tr>
+				<tr>
+					<td rowspan="2">外国語</td>
+					<td>初修外国語</td>
+					<td colspan="2" class="inp dis_inp">(<button type='button' onclick="showNameList(11)" class="alr"></button>/<span class="req"></span>)</td>
+				</tr>
+				<tr>
+					<td>既修外国語</td>
+					<td colspan="3" class="inp"><button type='button' onclick="showNameList(12)" class="alr"></button>/<span class="req"></span></td>
+				</tr>
+				<tr>
+					<td colspan="2">小計</td>
+					<td colspan="3" class="inp_zengaku"><span class="alr_zengaku"></span>/<span class="req_zengaku"></span></td>
+				</tr>
+				<tr>
+					<td rowspan="10">学部開設科目</td>
+					<td rowspan="4">共通科目</td>
+					<td>倫理</td>
+					<td colspan="2" class="inp"><button type='button' onclick="showNameList(13)" class="alr"></button>/<span class="req"></span></td>
+					<td rowspan="4" class="inp_kyotu"><span class="alr_kyotu"></span>/<span class="req_kyotu"></span></td>
+				</tr>
+				<tr>
+					<td>コミュニケーション能力</td>
+					<td colspan="2" class="inp"><button type='button' onclick="showNameList(14)" class="alr"></button>/<span class="req"></span></td>
+				</tr>
+				<tr>
+					<td>デザイン能力</td>
+					<td colspan="2" class="inp"><button type='button' onclick="showNameList(15)" class="alr"></button>/<span class="req"></span></td>
+				</tr>
+				<tr>
+					<td>リスクマネジメント能力</td>
+					<td colspan="2" class="inp"><button type='button' onclick="showNameList(16)" class="alr"></button>/<span class="req"></span></td>
+				</tr>
+				<tr>
+					<td rowspan="3">専門科目</td>
+					<td>数理的基礎力</td>
+					<td colspan="2" class="inp"><button type='button' onclick="showNameList(17)" class="alr"></button>/<span class="req"></span></td>
+					<td rowspan="3" class="inp_senmon"><span class="alr_senmon"></span>/<span class="req_senmon"></span></td>
+				</tr>
+				<tr>
+					<td>多角的思考能力</td>
+					<td colspan="2" class="inp"><button type='button' onclick="showNameList(18)" class="alr"></button>/<span class="req"></span></td>
+				</tr>
+				<tr>
+					<td>コース専門科目</td>
+					<td colspan="2" class="inp"><button type='button' onclick="showNameList(19)" class="alr"></button>/<span class="req"></span></td>
+				</tr>
+				<tr>
+					<td colspan="2">卒業研究・卒業制作</td>
+					<td colspan="3" class="inp"><button type='button' onclick="showNameList(20)" class="alr"></button>/<span class="req"></span></td>
+				</tr>
+				<tr>
+					<td colspan="2">自由科目</td>
+					<td colspan="3" class="inp_jiyuu"><span class="alr_jiyuu"></span>/<span class="req_jiyuu"></span></td>
+				</tr>
+				<tr>
+					<td colspan="2">小計</td>
+					<td colspan="3" class="inp_gakubu"><span class="alr_gakubu"></span>/<span class="req_gakubu"></span></td>
+				</tr>
+				<tr>
+					<td colspan="3">合計</td>
+					<td colspan="3" class="inp_goukei"><span class="alr_goukei"></span>/<span class="req_goukei"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	
+		<div id="name_list"></div>
+	</div>
+	<script src="../static/js/check.js"></script>
+</body>
+</html>
